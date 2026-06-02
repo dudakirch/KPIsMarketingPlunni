@@ -347,6 +347,23 @@
         .platform-block { margin-bottom: 20px; }
         .platform-block:last-child { margin-bottom: 0; }
 
+        /* Cards + chart side by side */
+        .platform-layout {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 12px;
+            align-items: start;
+        }
+
+        .platform-kpis .kpi-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* LinkedIn só tem 4 cards: 2 colunas ficam mais largas */
+        .platform-kpis.linkedin-kpis .kpi-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
         /* KPI Grid */
         .kpi-grid {
             display: grid;
@@ -890,10 +907,14 @@ function buildPanel(d, idx) {
             <div class="section-label">Redes Sociais</div>
             <div class="platform-block">
                 <div class="platform-label instagram">Instagram</div>
-                <div class="kpi-grid">${d.instagram.map(k => card(k,'instagram', prevIG[k.label])).join('')}</div>
-                ${buildFollowerChart('instagram')}
+                <div class="platform-layout">
+                    <div class="platform-kpis">
+                        <div class="kpi-grid">${d.instagram.map(k => card(k,'instagram', prevIG[k.label])).join('')}</div>
+                    </div>
+                    <div class="platform-chart">${buildFollowerChart('instagram')}</div>
+                </div>
                 ${d.bestPosts ? `
-                <div style="margin-top: 24px;">
+                <div style="margin-top: 20px;">
                     <div class="platform-label instagram" style="margin-bottom: 12px;">Posts em Destaque</div>
                     <div class="posts-grid">
                         ${postCard('Mais visualizações',    d.bestPosts.maisVisualizacoes)}
@@ -905,8 +926,12 @@ function buildPanel(d, idx) {
             </div>
             <div class="platform-block">
                 <div class="platform-label linkedin">LinkedIn</div>
-                <div class="kpi-grid">${d.linkedin.map(k => card(k,'linkedin', prevLI[k.label])).join('')}</div>
-                ${buildFollowerChart('linkedin')}
+                <div class="platform-layout">
+                    <div class="platform-kpis linkedin-kpis">
+                        <div class="kpi-grid">${d.linkedin.map(k => card(k,'linkedin', prevLI[k.label])).join('')}</div>
+                    </div>
+                    <div class="platform-chart">${buildFollowerChart('linkedin')}</div>
+                </div>
             </div>
         </div>
 
@@ -1018,8 +1043,8 @@ function buildFollowerChart(platform) {
     if (points.length === 0) return '';
 
     const color = platform === 'instagram' ? '#E1306C' : '#0077B5';
-    const W = 600, H = 80;
-    const pL = 24, pR = 32, pT = 22, pB = 22;
+    const W = 400, H = 130;
+    const pL = 28, pR = 36, pT = 28, pB = 28;
     const cW = W - pL - pR;
     const cH = H - pT - pB;
 
@@ -1036,11 +1061,11 @@ function buildFollowerChart(platform) {
     const gradId = `fg-${platform}`;
 
     const dots = points.map((p, i) => `
-        <circle cx="${xp(i).toFixed(1)}" cy="${yp(p.value).toFixed(1)}" r="4" fill="${color}"/>
-        <text x="${xp(i).toFixed(1)}" y="${(yp(p.value) - 9).toFixed(1)}" text-anchor="middle"
-              font-size="10" fill="${color}" font-weight="700" font-family="Inter,sans-serif">${p.value}</text>
-        <text x="${xp(i).toFixed(1)}" y="${(pT + cH + 17).toFixed(1)}" text-anchor="middle"
-              font-size="9" fill="#9A8E88" font-family="Inter,sans-serif">${p.name}</text>
+        <circle cx="${xp(i).toFixed(1)}" cy="${yp(p.value).toFixed(1)}" r="5" fill="${color}"/>
+        <text x="${xp(i).toFixed(1)}" y="${(yp(p.value) - 11).toFixed(1)}" text-anchor="middle"
+              font-size="14" fill="${color}" font-weight="700" font-family="Inter,sans-serif">${p.value}</text>
+        <text x="${xp(i).toFixed(1)}" y="${(pT + cH + 18).toFixed(1)}" text-anchor="middle"
+              font-size="12" fill="#9A8E88" font-family="Inter,sans-serif">${p.name}</text>
     `).join('');
 
     return `
