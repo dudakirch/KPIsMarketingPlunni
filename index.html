@@ -260,7 +260,7 @@
         .folder-body {
             background: var(--pampas);
             border-radius: 0 14px 14px 14px;
-            padding: 52px 48px;
+            padding: 36px 40px;
             min-height: 520px;
         }
 
@@ -308,7 +308,7 @@
         .month-name span { color: var(--orange); }
 
         /* Section */
-        .section { margin-bottom: 48px; }
+        .section { margin-bottom: 32px; }
 
         .section-label {
             font-size: 9px;
@@ -344,7 +344,7 @@
         .platform-label.linkedin  { color: var(--linkedin); }
         .platform-label.website   { color: var(--text-muted); }
 
-        .platform-block { margin-bottom: 28px; }
+        .platform-block { margin-bottom: 20px; }
         .platform-block:last-child { margin-bottom: 0; }
 
         /* KPI Grid */
@@ -357,7 +357,7 @@
         .kpi-card {
             background: var(--white);
             border-radius: 10px;
-            padding: 16px;
+            padding: 12px 14px;
             border-top: 3px solid var(--border);
         }
 
@@ -401,8 +401,8 @@
             gap: 3px;
             font-size: 10px;
             font-weight: 600;
-            margin-top: 7px;
-            padding: 2px 8px;
+            margin-top: 5px;
+            padding: 2px 7px;
             border-radius: 20px;
         }
 
@@ -485,7 +485,7 @@
         .follower-chart-card {
             background: var(--white);
             border-radius: 10px;
-            padding: 14px 18px 10px;
+            padding: 12px 14px 6px;
             margin-top: 10px;
             border-top: 3px solid var(--border);
         }
@@ -863,6 +863,11 @@ function calcComp(curr, prev) {
     if (pct === 0) return { label: '= 0%', type: 'neutral' };
     const arrow = pct > 0 ? '▲' : '▼';
     const sign  = pct > 0 ? '+' : '';
+    // Se a variação for extrema (base muito pequena), mostrar valor absoluto em vez de %
+    if (Math.abs(pct) > 500) {
+        const abs = c - p;
+        return { label: `${arrow} ${sign}${abs}`, type: pct > 0 ? 'positive' : 'negative' };
+    }
     return { label: `${arrow} ${sign}${pct}%`, type: pct > 0 ? 'positive' : 'negative' };
 }
 
@@ -1013,8 +1018,8 @@ function buildFollowerChart(platform) {
     if (points.length === 0) return '';
 
     const color = platform === 'instagram' ? '#E1306C' : '#0077B5';
-    const W = 600, H = 110;
-    const pL = 8, pR = 8, pT = 26, pB = 28;
+    const W = 600, H = 80;
+    const pL = 24, pR = 32, pT = 22, pB = 22;
     const cW = W - pL - pR;
     const cH = H - pT - pB;
 
