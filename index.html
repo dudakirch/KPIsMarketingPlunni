@@ -350,7 +350,7 @@
         /* KPI Grid */
         .kpi-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
             gap: 10px;
         }
 
@@ -481,24 +481,54 @@
         .source-row-comp.negative { color: #DC2626; }
         .source-row-comp.neutral  { color: #9CA3AF; }
 
-        /* Page tag */
-        .page-note {
-            margin-top: 14px;
-            font-size: 11px;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        /* Follower chart */
+        .follower-chart-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 14px 18px 10px;
+            margin-top: 10px;
+            border-top: 3px solid var(--border);
         }
 
-        .page-tag {
-            display: inline-block;
-            background: var(--orange-soft);
-            color: var(--orange);
-            font-size: 11px;
-            font-weight: 600;
-            padding: 3px 12px;
-            border-radius: 20px;
+        .follower-chart-card.instagram { border-top-color: var(--instagram); }
+        .follower-chart-card.linkedin  { border-top-color: var(--linkedin); }
+
+        .follower-chart-title {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        /* Página mais acessada */
+        .top-page-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 14px 18px;
+            border-top: 3px solid var(--orange);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .top-page-label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .top-page-value {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+            text-align: right;
         }
 
         /* Insights */
@@ -516,35 +546,34 @@
         }
 
         /* Best Posts */
+        /* Posts em destaque */
         .posts-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-        }
-
-        @media (max-width: 640px) {
-            .posts-grid { grid-template-columns: 1fr; }
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
         }
 
         .post-card {
             background: var(--white);
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            border-top: 3px solid rgba(225,48,108,0.25);
         }
 
         .post-card-top {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 14px 16px 12px;
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border);
         }
 
         .post-metric {
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 700;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
             color: var(--instagram);
         }
@@ -554,63 +583,24 @@
             font-weight: 600;
             color: var(--text-muted);
             text-decoration: none;
-            letter-spacing: 0.05em;
             transition: color 0.15s;
+            flex-shrink: 0;
         }
 
         .post-ver-link:hover { color: var(--instagram); }
 
-        /* Image area */
-        .post-image-wrap {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            background: var(--pampas-mid);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .post-image-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .post-image-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: var(--pampas-mid);
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: background 0.2s;
-        }
-
-        .post-image-placeholder:hover { background: var(--pampas-dark); }
-
-        .post-image-placeholder span {
-            font-size: 11px;
-            letter-spacing: 0.06em;
-        }
-
-        /* Metrics row */
         .post-metrics-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            border-top: 1px solid var(--border);
         }
 
         .post-metric-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 10px 4px;
+            padding: 10px 2px;
             border-right: 1px solid var(--border);
-            gap: 2px;
+            gap: 3px;
         }
 
         .post-metric-item:last-child { border-right: none; }
@@ -618,19 +608,19 @@
         .pmi-label {
             font-size: 8px;
             font-weight: 600;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
             color: var(--text-muted);
         }
 
         .pmi-value {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
             color: var(--text);
             line-height: 1.1;
         }
 
-        .pmi-value.empty { color: var(--border); font-size: 13px; font-weight: 400; }
+        .pmi-value.empty { color: var(--border); font-size: 12px; font-weight: 400; }
     </style>
 </head>
 <body>
@@ -896,9 +886,10 @@ function buildPanel(d, idx) {
             <div class="platform-block">
                 <div class="platform-label instagram">Instagram</div>
                 <div class="kpi-grid">${d.instagram.map(k => card(k,'instagram', prevIG[k.label])).join('')}</div>
+                ${buildFollowerChart('instagram')}
                 ${d.bestPosts ? `
-                <div style="margin-top: 28px;">
-                    <div class="platform-label instagram" style="margin-bottom: 16px;">Posts em Destaque</div>
+                <div style="margin-top: 24px;">
+                    <div class="platform-label instagram" style="margin-bottom: 12px;">Posts em Destaque</div>
                     <div class="posts-grid">
                         ${postCard('Mais visualizações',    d.bestPosts.maisVisualizacoes)}
                         ${postCard('Mais curtidas',         d.bestPosts.maisCurtidas)}
@@ -910,6 +901,7 @@ function buildPanel(d, idx) {
             <div class="platform-block">
                 <div class="platform-label linkedin">LinkedIn</div>
                 <div class="kpi-grid">${d.linkedin.map(k => card(k,'linkedin', prevLI[k.label])).join('')}</div>
+                ${buildFollowerChart('linkedin')}
             </div>
         </div>
 
@@ -919,9 +911,9 @@ function buildPanel(d, idx) {
                 <div class="kpi-grid">${d.website.filter(k => !k.source).map(k => card(k,'website', prevWS[k.label])).join('')}</div>
                 ${d.website.some(k => k.source) ? sourcesBlock(d.website.filter(k => k.source), prevWS) : ''}
                 ${d.pageMaisAcessada ? `
-                <div class="page-note">
-                    Página mais acessada
-                    <span class="page-tag">${d.pageMaisAcessada}</span>
+                <div class="top-page-card">
+                    <span class="top-page-label">Página mais acessada</span>
+                    <span class="top-page-value">${d.pageMaisAcessada}</span>
                 </div>` : ''}
             </div>
         </div>
@@ -984,57 +976,83 @@ function sourcesBlock(sources, prevWS) {
 
 function postCard(metricName, data) {
     const isPlaceholder = !data || data.placeholder;
-
-    if (isPlaceholder) {
-        return `
-            <div class="post-card">
-                <div class="post-card-top">
-                    <span class="post-metric">${metricName}</span>
-                </div>
-                <div class="post-image-wrap">
-                    <div class="post-image-placeholder">
-                        <span>a preencher</span>
-                    </div>
-                </div>
-                <div class="post-metrics-row">
-                    ${['Visualizações','Curtidas','Comentários','Compart.'].map(l => `
-                    <div class="post-metric-item">
-                        <span class="pmi-label">${l}</span>
-                        <span class="pmi-value empty">—</span>
-                    </div>`).join('')}
-                </div>
-            </div>`;
-    }
-
     const metrics = [
-        { label: 'Visualizações',  val: data.visualizacoes },
-        { label: 'Curtidas',       val: data.curtidas },
-        { label: 'Comentários',    val: data.comentarios },
-        { label: 'Compart.',       val: data.compartilhamentos },
+        { label: 'Viz.',     val: isPlaceholder ? null : data.visualizacoes },
+        { label: 'Curtidas', val: isPlaceholder ? null : data.curtidas },
+        { label: 'Coment.',  val: isPlaceholder ? null : data.comentarios },
+        { label: 'Compart.', val: isPlaceholder ? null : data.compartilhamentos },
     ];
-
-    const imageHtml = data.imageUrl
-        ? `<img src="${data.imageUrl}" alt="${metricName}" />`
-        : `<a class="post-image-placeholder" href="${data.url || '#'}" target="_blank" rel="noopener">
-               <span>Ver no Instagram ↗</span>
-           </a>`;
-
     return `
         <div class="post-card">
             <div class="post-card-top">
                 <span class="post-metric">${metricName}</span>
-                ${data.url ? `<a class="post-ver-link" href="${data.url}" target="_blank" rel="noopener">Ver post ↗</a>` : ''}
-            </div>
-            <div class="post-image-wrap">
-                ${imageHtml}
+                ${!isPlaceholder && data.url
+                    ? `<a class="post-ver-link" href="${data.url}" target="_blank" rel="noopener">Ver ↗</a>`
+                    : ''}
             </div>
             <div class="post-metrics-row">
                 ${metrics.map(m => `
                 <div class="post-metric-item">
-                    <span class="pmi-label">${m.label}</span>
                     <span class="pmi-value${m.val == null ? ' empty' : ''}">${m.val ?? '—'}</span>
+                    <span class="pmi-label">${m.label}</span>
                 </div>`).join('')}
             </div>
+        </div>`;
+}
+
+function buildFollowerChart(platform) {
+    const allIdxs = Object.keys(DATA).map(Number).sort((a, b) => a - b);
+    const points = allIdxs.map(idx => {
+        const d = DATA[idx];
+        const arr = platform === 'instagram' ? d.instagram : d.linkedin;
+        const item = arr.find(k => k.label === 'Seguidores');
+        const val = item ? parseNum(item.value) : null;
+        return val !== null ? { name: d.name.slice(0, 3), value: val } : null;
+    }).filter(Boolean);
+
+    if (points.length === 0) return '';
+
+    const color = platform === 'instagram' ? '#E1306C' : '#0077B5';
+    const W = 600, H = 110;
+    const pL = 8, pR = 8, pT = 26, pB = 28;
+    const cW = W - pL - pR;
+    const cH = H - pT - pB;
+
+    const vals  = points.map(p => p.value);
+    const minV  = Math.min(...vals);
+    const maxV  = Math.max(...vals);
+    const range = maxV - minV || 1;
+
+    const xp = i  => pL + (points.length === 1 ? cW / 2 : (i / (points.length - 1)) * cW);
+    const yp = v  => pT + cH - ((v - minV) / range) * cH;
+
+    const lineD = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${xp(i).toFixed(1)},${yp(p.value).toFixed(1)}`).join(' ');
+    const areaD = `${lineD} L${xp(points.length - 1).toFixed(1)},${(pT + cH).toFixed(1)} L${pL},${(pT + cH).toFixed(1)}Z`;
+    const gradId = `fg-${platform}`;
+
+    const dots = points.map((p, i) => `
+        <circle cx="${xp(i).toFixed(1)}" cy="${yp(p.value).toFixed(1)}" r="4" fill="${color}"/>
+        <text x="${xp(i).toFixed(1)}" y="${(yp(p.value) - 9).toFixed(1)}" text-anchor="middle"
+              font-size="10" fill="${color}" font-weight="700" font-family="Inter,sans-serif">${p.value}</text>
+        <text x="${xp(i).toFixed(1)}" y="${(pT + cH + 17).toFixed(1)}" text-anchor="middle"
+              font-size="9" fill="#9A8E88" font-family="Inter,sans-serif">${p.name}</text>
+    `).join('');
+
+    return `
+        <div class="follower-chart-card ${platform}">
+            <div class="follower-chart-title">Crescimento de seguidores</div>
+            <svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;display:block">
+                <defs>
+                    <linearGradient id="${gradId}" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="${color}" stop-opacity="0.15"/>
+                        <stop offset="100%" stop-color="${color}" stop-opacity="0"/>
+                    </linearGradient>
+                </defs>
+                <path d="${areaD}" fill="url(#${gradId})"/>
+                <path d="${lineD}" fill="none" stroke="${color}" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+                ${dots}
+            </svg>
         </div>`;
 }
 </script>
