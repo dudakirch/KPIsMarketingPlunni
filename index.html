@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
             --dark:        #1A1A1A;
             --dark-2:      #242527;
@@ -25,14 +24,12 @@
             --instagram:   #E1306C;
             --linkedin:    #0077B5;
         }
-
         body {
             background: var(--dark);
             font-family: 'Inter', -apple-system, sans-serif;
             min-height: 100vh;
             color: var(--text);
         }
-
         /* ─────────────────────────────
            LOGIN
         ───────────────────────────── */
@@ -45,7 +42,6 @@
             justify-content: center;
             z-index: 999;
         }
-
         .login-wrap {
             background: var(--pampas);
             border-radius: 20px;
@@ -54,14 +50,12 @@
             max-width: 420px;
             text-align: center;
         }
-
         .login-asterisk {
             font-size: 28px;
             color: var(--orange);
             margin-bottom: 16px;
             display: block;
         }
-
         .login-brand {
             font-size: 9px;
             font-weight: 700;
@@ -70,7 +64,6 @@
             color: var(--orange);
             margin-bottom: 12px;
         }
-
         .login-title {
             font-family: 'DM Serif Text', serif;
             font-size: 36px;
@@ -78,16 +71,13 @@
             line-height: 1;
             margin-bottom: 6px;
         }
-
         .login-title em { font-style: italic; }
-
         .login-sub {
             font-size: 12px;
             color: var(--text-muted);
             letter-spacing: 0.04em;
             margin-bottom: 40px;
         }
-
         .login-input {
             width: 100%;
             padding: 14px 18px;
@@ -102,10 +92,8 @@
             margin-bottom: 14px;
             letter-spacing: 0.08em;
         }
-
         .login-input:focus { border-color: var(--orange); }
         .login-input::placeholder { color: var(--text-muted); letter-spacing: 0.02em; }
-
         .login-btn {
             width: 100%;
             padding: 14px;
@@ -121,16 +109,13 @@
             cursor: pointer;
             transition: opacity 0.2s;
         }
-
         .login-btn:hover { opacity: 0.88; }
-
         .login-error {
             font-size: 12px;
             color: #DC2626;
             margin-top: 14px;
             display: none;
         }
-
         /* ─────────────────────────────
            DASHBOARD
         ───────────────────────────── */
@@ -140,7 +125,6 @@
             max-width: 1380px;
             margin: 0 auto;
         }
-
         /* Header */
         .header {
             display: flex;
@@ -148,7 +132,6 @@
             align-items: flex-end;
             margin-bottom: 60px;
         }
-
         .header-brand {
             font-size: 9px;
             font-weight: 700;
@@ -157,22 +140,18 @@
             color: var(--orange);
             margin-bottom: 10px;
         }
-
         .header-title {
             font-family: 'DM Serif Text', serif;
             font-size: 52px;
             color: var(--white);
             line-height: 1;
         }
-
         .header-title em { font-style: italic; }
-
         .header-right {
             display: flex;
             align-items: center;
             gap: 14px;
         }
-
         .year-chip {
             font-size: 10px;
             font-weight: 600;
@@ -183,7 +162,6 @@
             padding: 7px 16px;
             border-radius: 20px;
         }
-
         .logout-btn {
             background: none;
             border: 1px solid rgba(255,255,255,0.15);
@@ -197,12 +175,10 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-
         .logout-btn:hover {
             border-color: rgba(255,255,255,0.35);
             color: rgba(255,255,255,0.65);
         }
-
         /* ─────────────────────────────
            FOLDER TABS
         ───────────────────────────── */
@@ -214,9 +190,7 @@
             overflow-x: auto;
             scrollbar-width: none;
         }
-
         .folder-tabs::-webkit-scrollbar { display: none; }
-
         .folder-tab {
             flex-shrink: 0;
             padding: 9px 18px 11px;
@@ -231,29 +205,24 @@
             transition: background 0.15s, padding-bottom 0.15s;
             position: relative;
         }
-
         .folder-tab.empty {
             background: rgba(255,255,255,0.05);
             color: rgba(255,255,255,0.18);
             cursor: not-allowed;
         }
-
         .folder-tab.has-data {
             background: var(--pampas-dark);
             color: var(--text);
         }
-
         .folder-tab.has-data:hover {
             background: var(--pampas-mid);
         }
-
         .folder-tab.active {
             background: var(--pampas);
             color: var(--text);
             padding-bottom: 13px;
             z-index: 1;
         }
-
         /* ─────────────────────────────
            FOLDER BODY
         ───────────────────────────── */
@@ -263,19 +232,15 @@
             padding: 36px 40px;
             min-height: 520px;
         }
-
         .month-panel { display: none; }
-
         .month-panel.active {
             display: block;
             animation: fadeUp 0.25s ease;
         }
-
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(8px); }
             to   { opacity: 1; transform: translateY(0); }
         }
-
         .empty-state {
             display: flex;
             flex-direction: column;
@@ -285,10 +250,8 @@
             gap: 14px;
             color: var(--text-muted);
         }
-
         .empty-state .icon { font-size: 44px; opacity: 0.25; }
         .empty-state p { font-size: 13px; letter-spacing: 0.06em; }
-
         /* Month header */
         .month-header {
             display: flex;
@@ -298,18 +261,14 @@
             padding-bottom: 24px;
             border-bottom: 1px solid var(--border);
         }
-
         .month-name {
             font-family: 'DM Serif Text', serif;
             font-size: 40px;
             color: var(--text);
         }
-
         .month-name span { color: var(--orange); }
-
         /* Section */
         .section { margin-bottom: 32px; }
-
         .section-label {
             font-size: 9px;
             font-weight: 700;
@@ -321,14 +280,12 @@
             gap: 12px;
             margin-bottom: 22px;
         }
-
         .section-label::after {
             content: '';
             flex: 1;
             height: 1px;
             background: var(--border);
         }
-
         /* Platform headings */
         .platform-label {
             font-size: 10px;
@@ -337,16 +294,12 @@
             text-transform: uppercase;
             margin-bottom: 12px;
         }
-
         .platform-label + .kpi-grid { }
-
         .platform-label.instagram { color: var(--instagram); }
         .platform-label.linkedin  { color: var(--linkedin); }
         .platform-label.website   { color: var(--text-muted); }
-
         .platform-block { margin-bottom: 20px; }
         .platform-block:last-child { margin-bottom: 0; }
-
         /* Cards + chart side by side */
         .platform-layout {
             display: grid;
@@ -354,59 +307,49 @@
             gap: 12px;
             align-items: stretch;
         }
-
         .platform-kpis .kpi-grid {
             grid-template-columns: repeat(3, 1fr);
         }
-
         /* LinkedIn só tem 4 cards: 2 colunas ficam mais largas */
         .platform-kpis.linkedin-kpis .kpi-grid {
             grid-template-columns: repeat(2, 1fr);
         }
-
         .platform-chart {
             display: flex;
             flex-direction: column;
         }
-
         .platform-chart .follower-chart-card {
             flex: 1;
             margin-top: 0;
             display: flex;
             flex-direction: column;
         }
-
         .platform-chart .follower-chart-card svg {
             flex: 1;
             min-height: 0;
             height: 100%;
         }
-
         /* KPI Grid */
         .kpi-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
             gap: 10px;
         }
-
         .kpi-card {
             background: var(--white);
             border-radius: 10px;
             padding: 12px 14px;
             border-top: 3px solid var(--border);
         }
-
         .kpi-card.instagram { border-top-color: var(--instagram); }
         .kpi-card.linkedin  { border-top-color: var(--linkedin); }
         .kpi-card.website   { border-top-color: var(--text-muted); }
-
         .kpi-label {
             font-size: 10px;
             color: var(--text-muted);
             line-height: 1.35;
             margin-bottom: 8px;
         }
-
         .kpi-value {
             font-size: 26px;
             font-weight: 700;
@@ -414,21 +357,17 @@
             letter-spacing: -0.02em;
             line-height: 1;
         }
-
         .kpi-value.empty {
             font-size: 20px;
             color: var(--border);
         }
-
         .kpi-delta {
             font-size: 11px;
             font-weight: 600;
             margin-top: 5px;
         }
-
         .kpi-delta.positive { color: #15803D; }
         .kpi-delta.negative { color: #DC2626; }
-
         /* Month-over-month comparison badge */
         .kpi-comp {
             display: inline-flex;
@@ -440,11 +379,9 @@
             padding: 2px 7px;
             border-radius: 20px;
         }
-
         .kpi-comp.positive { background: rgba(21,128,61,0.1);  color: #15803D; }
         .kpi-comp.negative { background: rgba(220,38,38,0.1);  color: #DC2626; }
         .kpi-comp.neutral  { background: rgba(156,163,175,0.1);color: #9CA3AF; }
-
         /* Sources bar chart */
         .sources-chart {
             background: var(--pampas-mid);
@@ -452,7 +389,6 @@
             padding: 16px 20px;
             margin-top: 10px;
         }
-
         .sources-chart-title {
             font-size: 9px;
             font-weight: 700;
@@ -461,7 +397,6 @@
             color: var(--text-muted);
             margin-bottom: 14px;
         }
-
         .source-row {
             display: grid;
             grid-template-columns: 128px 1fr 36px 72px;
@@ -470,9 +405,7 @@
             padding: 7px 0;
             border-bottom: 1px solid var(--border);
         }
-
         .source-row:last-child { border-bottom: none; }
-
         .source-row-label {
             font-size: 11px;
             color: var(--text-muted);
@@ -480,42 +413,34 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
         .source-bar-track {
             height: 5px;
             background: var(--border);
             border-radius: 3px;
             overflow: hidden;
         }
-
         .source-bar-fill {
             height: 100%;
             background: var(--text);
             border-radius: 3px;
             opacity: 0.35;
         }
-
         .source-bar-fill.zero { width: 0 !important; }
-
         .source-row-value {
             font-size: 12px;
             font-weight: 700;
             color: var(--text);
             text-align: right;
         }
-
         .source-row-value.null { color: var(--border); font-weight: 400; }
-
         .source-row-comp {
             font-size: 10px;
             font-weight: 600;
             text-align: right;
         }
-
         .source-row-comp.positive { color: #15803D; }
         .source-row-comp.negative { color: #DC2626; }
         .source-row-comp.neutral  { color: #9CA3AF; }
-
         /* Follower chart */
         .follower-chart-card {
             background: var(--white);
@@ -524,10 +449,8 @@
             margin-top: 10px;
             border-top: 3px solid var(--border);
         }
-
         .follower-chart-card.instagram { border-top-color: var(--instagram); }
         .follower-chart-card.linkedin  { border-top-color: var(--linkedin); }
-
         .follower-chart-title {
             font-size: 9px;
             font-weight: 700;
@@ -536,7 +459,6 @@
             color: var(--text-muted);
             margin-bottom: 10px;
         }
-
         /* Página mais acessada */
         .top-page-card {
             background: var(--white);
@@ -549,7 +471,6 @@
             gap: 12px;
             margin-top: 10px;
         }
-
         .top-page-label {
             font-size: 9px;
             font-weight: 700;
@@ -558,14 +479,12 @@
             color: var(--text-muted);
             white-space: nowrap;
         }
-
         .top-page-value {
             font-size: 15px;
             font-weight: 700;
             color: var(--text);
             text-align: right;
         }
-
         /* Insights */
         .insights-box {
             background: var(--white);
@@ -573,13 +492,11 @@
             padding: 28px 32px;
             border-left: 4px solid var(--orange);
         }
-
         .insights-text {
             font-size: 15px;
             line-height: 1.85;
             color: var(--text);
         }
-
         /* Best Posts */
         /* Posts em destaque */
         .posts-grid {
@@ -587,7 +504,6 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 10px;
         }
-
         .post-card {
             background: var(--white);
             border-radius: 10px;
@@ -596,7 +512,6 @@
             flex-direction: column;
             border-top: 3px solid rgba(225,48,108,0.25);
         }
-
         .post-card-top {
             display: flex;
             align-items: center;
@@ -604,7 +519,6 @@
             padding: 12px 14px;
             border-bottom: 1px solid var(--border);
         }
-
         .post-metric {
             font-size: 9px;
             font-weight: 700;
@@ -612,7 +526,6 @@
             text-transform: uppercase;
             color: var(--instagram);
         }
-
         .post-ver-link {
             font-size: 10px;
             font-weight: 600;
@@ -621,14 +534,11 @@
             transition: color 0.15s;
             flex-shrink: 0;
         }
-
         .post-ver-link:hover { color: var(--instagram); }
-
         .post-metrics-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
         }
-
         .post-metric-item {
             display: flex;
             flex-direction: column;
@@ -637,9 +547,7 @@
             border-right: 1px solid var(--border);
             gap: 3px;
         }
-
         .post-metric-item:last-child { border-right: none; }
-
         .pmi-label {
             font-size: 8px;
             font-weight: 600;
@@ -647,19 +555,16 @@
             text-transform: uppercase;
             color: var(--text-muted);
         }
-
         .pmi-value {
             font-size: 14px;
             font-weight: 700;
             color: var(--text);
             line-height: 1.1;
         }
-
         .pmi-value.empty { color: var(--border); font-size: 12px; font-weight: 400; }
     </style>
 </head>
 <body>
-
 <!-- ══════════ LOGIN ══════════ -->
 <div id="loginScreen">
     <div class="login-wrap">
@@ -676,7 +581,6 @@
         <p class="login-error" id="loginError">Senha incorreta. Tente novamente.</p>
     </div>
 </div>
-
 <!-- ══════════ DASHBOARD ══════════ -->
 <div id="dashboard">
     <div class="header">
@@ -688,7 +592,6 @@
             <button class="logout-btn" onclick="logout()">Sair</button>
         </div>
     </div>
-
     <div>
         <div class="folder-tabs" id="folderTabs"></div>
         <div class="folder-body">
@@ -696,12 +599,10 @@
         </div>
     </div>
 </div>
-
 <script>
 /* ══════════ AUTH ══════════ */
 const _a = ["M","K","T","2","0","2","6"]; const PASSWORD = _a.join(""); // ← altere as letras/números acima para trocar a senha
 const AUTH_KEY = "plunni_mkt_auth_v1";
-
 function checkPassword() {
     const val = document.getElementById('passwordInput').value;
     if (val === PASSWORD) {
@@ -713,23 +614,18 @@ function checkPassword() {
         document.getElementById('passwordInput').focus();
     }
 }
-
 document.getElementById('passwordInput').addEventListener('keypress', e => {
     if (e.key === 'Enter') checkPassword();
 });
-
 function showDashboard() {
     document.getElementById('loginScreen').style.display = 'none';
     document.getElementById('dashboard').style.display = 'block';
 }
-
 function logout() {
     localStorage.removeItem(AUTH_KEY);
     location.reload();
 }
-
 if (localStorage.getItem(AUTH_KEY) === "1") showDashboard();
-
 /* ══════════ DATA ══════════ */
 /*
   Para adicionar um novo mês: copie o bloco de um mês existente,
@@ -769,7 +665,6 @@ const DATA = {
         insights: "Abril foi o primeiro mês de acompanhamento formal dos KPIs de marketing da Plunni. O Instagram contava com 336 seguidores e o LinkedIn com 412, com crescimento inicial registrado em ambas as plataformas.",
         bestPosts: null, // sem posts para registrar ainda
     },
-
     4: { // Maio
         name: "Maio",
         instagram: [
@@ -823,29 +718,55 @@ const DATA = {
             },
         },
     },
-
-    // ─── Para adicionar Junho, copie o bloco acima com índice 5 ───
+    5: { // Junho
+        name: "Junho",
+        instagram: [
+            { label: "Seguidores",           value: "361" },
+            { label: "Crescimento líquido",  value: "+11" },
+            { label: "Interações",           value: "390" },
+            { label: "Visualizações",        value: "8.102" },
+            { label: "Visitas no perfil",    value: "241" },
+            { label: "Cliques no link",      value: "2" },
+        ],
+        linkedin: [
+            { label: "Seguidores",           value: "486" },
+            { label: "Novos seguidores",     value: "38" },
+            { label: "Impressões",           value: "4.278" },
+            { label: "Visitantes únicos",    value: "280" },
+        ],
+        website: [
+            { label: "Visitas totais",       value: "11" },
+            { label: "Novas visitas",        value: "8" },
+            { label: "Tempo médio",          value: "0:07s" },
+            { label: "E-mail",               value: "0",    source: true },
+            { label: "Busca orgânica",       value: "3",    source: true },
+            { label: "Busca paga",           value: "0",    source: true },
+            { label: "Tráfego direto",       value: "4",    source: true },
+            { label: "Referências",          value: "1",    source: true },
+            { label: "Social orgânico",      value: "0",    source: true },
+            { label: "Social pago",          value: "0",    source: true },
+        ],
+        pageMaisAcessada: "Home",
+        insights: "Em junho, o LinkedIn seguiu em crescimento: 38 novos seguidores e 4.278 impressões — o melhor resultado desde o início do acompanhamento. O Instagram somou 8.102 visualizações e +11 seguidores, mantendo ritmo consistente. O tráfego no website recuou, com 8 novas visitas, concentradas em busca orgânica e tráfego direto.",
+        bestPosts: null,
+    },
+    // ─── Para adicionar Julho, copie o bloco acima com índice 6 ───
 };
-
 /* ══════════ UI ══════════ */
 const SHORT = ["Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
 const FULL  = ["Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
 const IDX_OFFSET = 3; // Abril = índice real 3
-
 const tabsEl   = document.getElementById('folderTabs');
 const panelsEl = document.getElementById('monthPanels');
-
 SHORT.forEach((s, pos) => {
     const i = pos + IDX_OFFSET;
     const hasData = DATA[i] != null;
-
     const tab = document.createElement('button');
     tab.className  = `folder-tab ${hasData ? 'has-data' : 'empty'}`;
     tab.textContent = s;
     tab.dataset.idx = i;
     if (hasData) tab.addEventListener('click', () => activate(i));
     tabsEl.appendChild(tab);
-
     const panel = document.createElement('div');
     panel.className = 'month-panel';
     panel.id = `panel-${i}`;
@@ -856,24 +777,20 @@ SHORT.forEach((s, pos) => {
         </div>`;
     panelsEl.appendChild(panel);
 });
-
 const lastIdx = Math.max(...Object.keys(DATA).map(Number));
 activate(lastIdx);
-
 function activate(idx) {
     document.querySelectorAll('.folder-tab').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.month-panel').forEach(p => p.classList.remove('active'));
     document.querySelector(`[data-idx="${idx}"]`).classList.add('active');
     document.getElementById(`panel-${idx}`).classList.add('active');
 }
-
 /* ══════════ HELPERS ══════════ */
 function buildLookup(arr) {
     const m = {};
     arr.forEach(k => { m[k.label] = k.value; });
     return m;
 }
-
 function parseNum(v) {
     if (v == null) return null;
     const s = String(v)
@@ -885,7 +802,6 @@ function parseNum(v) {
     const n = parseFloat(s);
     return isNaN(n) ? null : n;
 }
-
 function calcComp(curr, prev) {
     const c = parseNum(curr);
     const p = parseNum(prev);
@@ -905,7 +821,6 @@ function calcComp(curr, prev) {
     }
     return { label: `${arrow} ${sign}${pct}%`, type: pct > 0 ? 'positive' : 'negative' };
 }
-
 /* ══════════ BUILDERS ══════════ */
 function buildPanel(d, idx) {
     // Find closest previous month with data
@@ -920,7 +835,6 @@ function buildPanel(d, idx) {
         <div class="month-header">
             <div class="month-name"><span>${d.name}</span></div>
         </div>
-
         <div class="section">
             <div class="section-label">Redes Sociais</div>
             <div class="platform-block">
@@ -952,7 +866,6 @@ function buildPanel(d, idx) {
                 </div>
             </div>
         </div>
-
         <div class="section">
             <div class="section-label">Website</div>
             <div class="platform-block">
@@ -965,7 +878,6 @@ function buildPanel(d, idx) {
                 </div>` : ''}
             </div>
         </div>
-
         ${d.insights ? `
         <div class="section">
             <div class="section-label">Insights do Mês</div>
@@ -975,7 +887,6 @@ function buildPanel(d, idx) {
         </div>` : ''}
     `;
 }
-
 function card(k, type, prevVal) {
     const empty = k.value == null;
     const comp  = (!empty && prevVal !== undefined) ? calcComp(k.value, prevVal) : null;
@@ -987,7 +898,6 @@ function card(k, type, prevVal) {
             ${comp ? `<div class="kpi-comp ${comp.type}">${comp.label}</div>` : ''}
         </div>`;
 }
-
 function sourcesBlock(sources, prevWS) {
     // Sort by numeric value descending (nulls last)
     const sorted = [...sources].sort((a, b) => {
@@ -995,10 +905,8 @@ function sourcesBlock(sources, prevWS) {
         const nb = parseNum(b.value) ?? -1;
         return nb - na;
     });
-
     // Find max value for bar scaling
     const maxVal = Math.max(1, ...sorted.map(k => parseNum(k.value) ?? 0));
-
     const rows = sorted.map(k => {
         const isNull = k.value == null;
         const num    = isNull ? 0 : (parseNum(k.value) ?? 0);
@@ -1014,14 +922,12 @@ function sourcesBlock(sources, prevWS) {
                 <div class="source-row-comp ${comp ? comp.type : ''}">${comp ? comp.label : ''}</div>
             </div>`;
     }).join('');
-
     return `
         <div class="sources-chart">
             <div class="sources-chart-title">Origem das novas visitas</div>
             ${rows}
         </div>`;
 }
-
 function postCard(metricName, data) {
     const isPlaceholder = !data || data.placeholder;
     const metrics = [
@@ -1047,7 +953,6 @@ function postCard(metricName, data) {
             </div>
         </div>`;
 }
-
 function buildFollowerChart(platform) {
     const allIdxs = Object.keys(DATA).map(Number).sort((a, b) => a - b);
     const points = allIdxs.map(idx => {
@@ -1057,27 +962,21 @@ function buildFollowerChart(platform) {
         const val = item ? parseNum(item.value) : null;
         return val !== null ? { name: d.name.slice(0, 3), value: val } : null;
     }).filter(Boolean);
-
     if (points.length === 0) return '';
-
     const color = platform === 'instagram' ? '#E1306C' : '#0077B5';
     const W = 400, H = 130;
     const pL = 28, pR = 36, pT = 28, pB = 28;
     const cW = W - pL - pR;
     const cH = H - pT - pB;
-
     const vals  = points.map(p => p.value);
     const minV  = Math.min(...vals);
     const maxV  = Math.max(...vals);
     const range = maxV - minV || 1;
-
     const xp = i  => pL + (points.length === 1 ? cW / 2 : (i / (points.length - 1)) * cW);
     const yp = v  => pT + cH - ((v - minV) / range) * cH;
-
     const lineD = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${xp(i).toFixed(1)},${yp(p.value).toFixed(1)}`).join(' ');
     const areaD = `${lineD} L${xp(points.length - 1).toFixed(1)},${(pT + cH).toFixed(1)} L${pL},${(pT + cH).toFixed(1)}Z`;
     const gradId = `fg-${platform}`;
-
     const dots = points.map((p, i) => `
         <circle cx="${xp(i).toFixed(1)}" cy="${yp(p.value).toFixed(1)}" r="5" fill="${color}"/>
         <text x="${xp(i).toFixed(1)}" y="${(yp(p.value) - 11).toFixed(1)}" text-anchor="middle"
@@ -1085,7 +984,6 @@ function buildFollowerChart(platform) {
         <text x="${xp(i).toFixed(1)}" y="${(pT + cH + 18).toFixed(1)}" text-anchor="middle"
               font-size="12" fill="#9A8E88" font-family="Inter,sans-serif">${p.name}</text>
     `).join('');
-
     return `
         <div class="follower-chart-card ${platform}">
             <div class="follower-chart-title">Crescimento de seguidores</div>
