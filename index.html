@@ -661,7 +661,7 @@ const DATA = {
             { label: "Social orgânico",      value: "8",    source: true },
             { label: "Social pago",          value: "0",    source: true },
         ],
-        pageMaisAcessada: "Gestão de pessoas",
+        pageMaisAcessada: "Home",
         insights: "Abril foi o primeiro mês de acompanhamento formal dos KPIs de marketing da Plunni. O Instagram contava com 336 seguidores e o LinkedIn com 412, com crescimento inicial registrado em ambas as plataformas.",
         bestPosts: null, // sem posts para registrar ainda
     },
@@ -693,7 +693,7 @@ const DATA = {
             { label: "Social orgânico",      value: "2",    source: true },
             { label: "Social pago",          value: "0",    source: true },
         ],
-        pageMaisAcessada: "Gestão de pessoas",
+        pageMaisAcessada: "Home",
         insights: "No mês de maio iniciamos a postar nas redes sociais da Plunni, toda a semana postamos 3 posts. O resultado foi expressivo: as visualizações no Instagram saltaram de 510 para 14.565, e as impressões no LinkedIn passaram de 609 para 2.726.",
         bestPosts: {
             maisVisualizacoes: {
@@ -747,7 +747,7 @@ const DATA = {
             { label: "Social pago",          value: "0",    source: true },
         ],
         pageMaisAcessada: "Home",
-        insights: "Em junho, o LinkedIn seguiu em crescimento: 38 novos seguidores e 4.278 impressões — o melhor resultado desde o início do acompanhamento. O Instagram somou 8.102 visualizações e +11 seguidores, mantendo ritmo consistente. O tráfego no website recuou, com 8 novas visitas, concentradas em busca orgânica e tráfego direto.",
+        insights: "Foi um mês que mantemos a nossa constância de postagens. O Instagram apresentou um crescimento constante, mas o LinkedIn conseguimos aumentar as impressões, que é um potencial canal para a marca.<br><br>Em junho iniciamos o nosso processo de rebranding com o novo nome para a marca, que será lançado em julho.",
         bestPosts: null,
     },
     // ─── Para adicionar Julho, copie o bloco acima com índice 6 ───
@@ -843,7 +843,7 @@ function buildPanel(d, idx) {
                     <div class="platform-kpis">
                         <div class="kpi-grid">${d.instagram.map(k => card(k,'instagram', prevIG[k.label])).join('')}</div>
                     </div>
-                    <div class="platform-chart">${buildFollowerChart('instagram')}</div>
+                    <div class="platform-chart">${buildFollowerChart('instagram', idx)}</div>
                 </div>
                 ${d.bestPosts ? `
                 <div style="margin-top: 20px;">
@@ -862,7 +862,7 @@ function buildPanel(d, idx) {
                     <div class="platform-kpis linkedin-kpis">
                         <div class="kpi-grid">${d.linkedin.map(k => card(k,'linkedin', prevLI[k.label])).join('')}</div>
                     </div>
-                    <div class="platform-chart">${buildFollowerChart('linkedin')}</div>
+                    <div class="platform-chart">${buildFollowerChart('linkedin', idx)}</div>
                 </div>
             </div>
         </div>
@@ -953,7 +953,7 @@ function postCard(metricName, data) {
             </div>
         </div>`;
 }
-function buildFollowerChart(platform) {
+function buildFollowerChart(platform, idx) {
     const allIdxs = Object.keys(DATA).map(Number).sort((a, b) => a - b);
     const points = allIdxs.map(idx => {
         const d = DATA[idx];
@@ -976,7 +976,7 @@ function buildFollowerChart(platform) {
     const yp = v  => pT + cH - ((v - minV) / range) * cH;
     const lineD = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${xp(i).toFixed(1)},${yp(p.value).toFixed(1)}`).join(' ');
     const areaD = `${lineD} L${xp(points.length - 1).toFixed(1)},${(pT + cH).toFixed(1)} L${pL},${(pT + cH).toFixed(1)}Z`;
-    const gradId = `fg-${platform}`;
+    const gradId = `fg-${platform}-${idx}`;
     const dots = points.map((p, i) => `
         <circle cx="${xp(i).toFixed(1)}" cy="${yp(p.value).toFixed(1)}" r="5" fill="${color}"/>
         <text x="${xp(i).toFixed(1)}" y="${(yp(p.value) - 11).toFixed(1)}" text-anchor="middle"
